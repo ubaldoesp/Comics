@@ -1,0 +1,5 @@
+MONGO_HOST=mongodb+srv://ubaryuk:uba123@clusterdemo.mal77.mongodb.net/Comics?retryWrites=true&w=majority
+MONGO_PORT=27017
+MONGO_DB=Comics
+MONGO_USER=ubaryuk
+MONGO_PASSWORD=uba123

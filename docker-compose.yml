@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: comic_db
+    env_file:
+      - ./.envs/.mongo
+    volumes:
+      - ./data:/data/db
+      - ./data/log:/var/log/mongodb/
+    ports:
+      - "27017:27017"
+
+  comics_app:
+    build: .
+    volumes:
+      - static:/code/static
+      - .:/code
+    depends_on:
+      - db
+  
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static/code/static
+    depends_on:
+      - comics_app

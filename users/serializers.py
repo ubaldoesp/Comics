@@ -1,5 +1,4 @@
 from django.contrib.auth import password_validation, authenticate
-from django.core.validators import RegexValidator,FileExtensionValidator
 
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
